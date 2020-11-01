@@ -1,0 +1,54 @@
+body {
+    font-family: "Lato", sans-serif
+}
+.navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    padding: 5px 10px;
+}
+
+.navbar-brand{
+    font-size: 28px;
+    margin-right: 3.1rem;
+    padding-top: 3.125px;
+    padding-bottom: 3.125px;
+}
+
+.nav-link{
+    font-size: 15px;
+    margin-right: 1.35rem;
+}
+
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  width: 70%;
+  margin-top: 40px;
+}
+
+.mid {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
