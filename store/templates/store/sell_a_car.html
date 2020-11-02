@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/ce84bbae65.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Sell a car</title>
+</head>
+
+<body class="body-2">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'store-home' %}">Cash My Car</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'store-home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Buy Car
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">New</a>
+                        <a class="dropdown-item" href="#">Old</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'store-sellcar' %}">Sell a Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'profile' %}"><i class="ml-3 fa fa-user"></i> Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'logout' %}"><i class="ml-3 fa fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'login' %}"><i class="ml-3 fa fa-user"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-2">
+
+        <h1>Estimate car price</h1>
+
+        <form class="survey-form" action="#" method="post" id="search">
+
+            <div class="form-fields">
+
+                <label for="">
+                    <h3>Car name</h3>
+                </label>
+                <input type="text" name="" value="" class="input form-element" required>
+
+                <label for="image">
+                    <h3>Upload Car Image</h3>
+                </label>
+                <input type="file" name="image" value="" id="" class="">
+
+                <h3>Year of purchase</h3>
+                <select class="select form-element" name="">
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                </select>
+
+                <label for="">
+                    <h3>Showroom price (in lakhs)</h3>
+                </label>
+                <input type="number" name="" value="" class="input form-element" required>
+
+                <label for="">
+                    <h3>Kilometres driven</h3>
+                </label>
+                <input type="number" name="" value="" class="input form-element" required>
+
+                <label for="">
+                    <h3>No. of previous owners</h3>
+                </label>
+                <input type="number" name="" value="" class="input form-element" required>
+
+                <h3>Fuel type</h3>
+                <select class="select form-element" name="">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                </select>
+
+                <label for="">
+                    <h3>Engine capacity (in cc)</h3>
+                </label>
+                <input type="number" name="" value="" class="input form-element" required>
+
+                <label for="">
+                    <h3>Seating capacity</h3>
+                </label>
+                <input type="number" name="" value="" class="input form-element" required>
+
+                <h3>Transmission type</h3>
+                <select class="select form-element" name="">
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                </select>
+
+                <h3>Are you an individual or dealer?</h3>
+                <select class="select form-element" name="">
+                    <option value="Individual">Individual</option>
+                    <option value="Dealer">Dealer</option>
+                </select>
+
+
+                <h3>Estimated price : </h3>
+                <p></p>
+
+                <button type="submit" name="button" class="estimate-button">Estimate Price</button>
+
+                <label for="">
+                    <h3>Desired price for sale (optional)</h3>
+                </label>
+                <input type="number" name="" value="" class="input form-element" required>
+
+                <button type="button" name="button" class="sale-button">Add for sale</button>
+
+            </div>
+
+        </form>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

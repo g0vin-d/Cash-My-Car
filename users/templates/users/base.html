@@ -36,19 +36,28 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sell a Car</a>
+                    <a class="nav-link" href="{% url 'store-sellcar' %}">Sell a Car</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact Us</a>
                 </li>
             </ul>
             <ul class="navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="ml-3 fa fa-user"></i> Login</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'profile' %}"><i class="ml-3 fa fa-user"></i> Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'logout' %}"><i class="ml-3 fa fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'login' %}"><i class="ml-3 fa fa-user"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

@@ -5,3 +5,7 @@ from django.shortcuts import render
 
 def home(request):
     return render(request, 'store/index.html')
+
+
+def sellacar(request):
+    return render(request, 'store/sell_a_car.html')

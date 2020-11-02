@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
     font-family: "Lato", sans-serif
 }
@@ -29,9 +33,10 @@ body {
   background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
-  border-radius: 3px;
-  width: 70%;
+  border-radius: 5px;
+  width: 60%;
   margin-top: 40px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.6);
 }
 
 .mid {
@@ -51,4 +56,37 @@ footer {
   padding-bottom: 5px;
   padding-right: 10px;
   padding-left: 10px;
+}
+
+footer i{
+  font-size: 2rem;
+  margin: 0.5rem;
+}
+
+.media-body {
+  width: 200px;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-body {
+  padding-top: 10px;
+  text-align: center;
+}
+.media-body p{
+  font-weight: 900;
+}
+
+.account-img {
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
