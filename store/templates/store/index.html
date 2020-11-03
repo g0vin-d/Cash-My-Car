@@ -30,15 +30,15 @@
                         Buy Car
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">New</a>
-                        <a class="dropdown-item" href="#">Old</a>
+                        <a class="dropdown-item" href="{% url 'store-newcar' %}">New</a>
+                        <a class="dropdown-item" href="{% url 'store-oldcar' %}">Old</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'store-sellcar' %}">Sell a Car</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
+                    <a class="nav-link" href="{% url 'store-home' %}#contact">Contact Us</a>
                 </li>
             </ul>
             <ul class="navbar-nav navbar-right">
@@ -206,7 +206,7 @@
             </div>
             <div class="w3-col m6">
                 <form action="/action_page.php" target="_blank">
-                    <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                    <div class="w3-row-padding midd" style="margin:0 -16px 8px -16px">
                         <div class="w3-half">
                             <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
                         </div>

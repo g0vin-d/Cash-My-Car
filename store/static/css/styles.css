@@ -11,6 +11,7 @@ html{
 
 body{
     font-size: 1.6rem;
+    font-family: "Lato", sans-serif
 }
 
 .navbar{
@@ -103,7 +104,6 @@ body{
 }
 
 .card{
-    height: 30rem;
     width: 27rem;
     background-color: #fff;
     display: flex;
@@ -223,7 +223,7 @@ input[type=file]{
     margin-left: 2rem;
 }
 
-.form-element, input[type=text]{
+.form-element{
     display: block;
     font-size: 1.6rem;
     line-height: 1.3;
@@ -298,8 +298,9 @@ form button:focus{
 }
 
 .sale-button{
-    width: 90%;
+    width: 100%;
     background-color: var(--light-blue);
+    color: #fff;
 }
 
 .sale-button:hover{
@@ -311,3 +312,5 @@ form button:focus{
     background-color: var(--light-blue);
     color: #fff;
 }
+
+--------------------------------------------------------------------------------------------------------------------

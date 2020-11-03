@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/ce84bbae65.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="css/index.css"> -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Sell a car</title>
 </head>
@@ -33,15 +33,15 @@
                         Buy Car
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">New</a>
-                        <a class="dropdown-item" href="#">Old</a>
+                        <a class="dropdown-item" href="{% url 'store-newcar' %}">New</a>
+                        <a class="dropdown-item" href="{% url 'store-oldcar' %}">Old</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'store-sellcar' %}">Sell a Car</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
+                    <a class="nav-link" href="{% url 'store-home' %}#contact">Contact Us</a>
                 </li>
             </ul>
             <ul class="navbar-nav navbar-right">
