@@ -4,7 +4,7 @@ Intructions:
 1: First Create Virtual Environment
 
 	virtualenv envName 
-	source envName/bin/activate // to activate 
+	source envName/bin/activate // to activate environment 
 
 2: Install requirements
 
