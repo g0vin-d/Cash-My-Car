@@ -117,47 +117,13 @@
 
     <section class="tours-section">
 
-        <div class="card">
-            <img src="{% static 'images/hyundaii10.jpg' %}" alt="">
-            <b>Hyundai i10</b>
-            <p>5.12 Lakhs* Get on road price</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card">
-            <img src="{% static 'images/rduster.jpg' %}" alt="">
-            <b>Renault Duster</b>
-            <p>8.49 Lakhs* Get on road price</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card">
-            <img src="{% static 'images/tiago.jpg' %}" alt="">
-            <b>Tata Tiago XT</b>
-            <p>5.87 Lakhs* Get on road price</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card">
-            <img src="{% static 'images/mertiga.jpg' %}" alt="">
-            <b>Maruti Suzuki Ertiga</b>
-            <p>11.20 Lakhs* Get on road price</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card">
-            <img src="{% static 'images/suzukibaleno.jpg' %}" alt="">
-            <b>Suzuki Baleno</b>
-            <p>5.64 Lakhs* Get on road price</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card">
-            <img src="{% static 'images/icrysta.jpeg' %}" alt="">
-            <b>Crysta Innova</b>
-            <p>19.85 Lakhs* Get on road price</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
+        {% for car in cars %}   
+                <div class="card card-2">
+                    <img src="{{ car.image.url }}" alt="">
+                    <b>{{ car.car_name }}</b>
+                    <p>{{ car.ex_price }} Lakhs* Get on road price</p>
+                    <button action=""><a style="text-decoration-style: unset;" href="{% url 'car-detail' car.id %}" title="">View</a></button>                </div>
+        {% endfor %}
 
     </section>
 

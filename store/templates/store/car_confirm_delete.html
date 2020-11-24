@@ -3,7 +3,7 @@
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home | Cash My Car</title>
+<title>Cash My Car</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -31,31 +31,52 @@
                         Buy Car
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">New</a>
-                        <a class="dropdown-item" href="#">Old</a>
+                        <a class="dropdown-item" href="{% url 'store-newcar' %}">New</a>
+                        <a class="dropdown-item" href="{% url 'store-oldcar' %}">Old</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sell a Car</a>
+                    <a class="nav-link" href="{% url 'store-sellcar' %}">Sell a Car</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
+                    <a class="nav-link" href="{% url 'store-home' %}#contact">Contact Us</a>
                 </li>
             </ul>
             <ul class="navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="ml-3 fa fa-user"></i> Login</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'profile' %}"><i class="ml-3 fa fa-user"></i> Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'logout' %}"><i class="ml-3 fa fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'login' %}"><i class="ml-3 fa fa-user"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
 
     <main role="main" class="container">
         <div class="mid">
-            {% block content %}{% endblock %}
+            <div class='content-section'>
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Delete Car Details</legend>
+                        <h2>Are you sure you want to delete the car "{{ car.car_name }}"</h2>
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                        <a class="btn btn-outline-secondary" href="{% url 'car-detail' car.id %}" > Cancel </a>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 

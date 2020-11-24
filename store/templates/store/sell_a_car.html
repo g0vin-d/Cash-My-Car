@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css"> -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>Sell a car</title>
+    <title>Sell a car | Cash My Car</title>
 </head>
 
 <body class="body-2">
@@ -68,22 +68,22 @@
 
         <h1>Estimate car price</h1>
 
-        <form class="survey-form" action="#" method="post" id="search">
-
+        <form class="survey-form" action="/sellcar/" method="post" id="search" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="form-fields">
 
-                <label for="">
+                <label for="">  
                     <h3>Car name</h3>
                 </label>
-                <input type="text" name="" value="" class="input form-element" required>
+                <input type="text" name="car_name" id="car_name" value="" class="input form-element" required>
 
                 <label for="image">
                     <h3>Upload Car Image</h3>
                 </label>
-                <input type="file" name="image" value="" id="" class="">
+                <input type="file" name="image"  id="image" value="" id="" class="">
 
                 <h3>Year of purchase</h3>
-                <select class="select form-element" name="">
+                <select class="select form-element" name="purchase_year" id="purchase_year">
                     <option value="2020">2020</option>
                     <option value="2019">2019</option>
                     <option value="2018">2018</option>
@@ -110,20 +110,20 @@
                 <label for="">
                     <h3>Showroom price (in lakhs)</h3>
                 </label>
-                <input type="number" name="" value="" class="input form-element" required>
+                <input type="text" name="ex_price" id="ex_price" class="input form-element">
 
                 <label for="">
                     <h3>Kilometres driven</h3>
                 </label>
-                <input type="number" name="" value="" class="input form-element" required>
+                <input type="number" name="kms_driven" id="kms_driven" class="input form-element" required>
 
                 <label for="">
                     <h3>No. of previous owners</h3>
                 </label>
-                <input type="number" name="" value="" class="input form-element" required>
+                <input type="number" name="no_owners"  id="no_owners" class="input form-element" required>
 
                 <h3>Fuel type</h3>
-                <select class="select form-element" name="">
+                <select class="select form-element" name="fuel_type" id="fuel_type">
                     <option value="Petrol">Petrol</option>
                     <option value="Diesel">Diesel</option>
                     <option value="CNG">CNG</option>
@@ -132,43 +132,45 @@
                 <label for="">
                     <h3>Engine capacity (in cc)</h3>
                 </label>
-                <input type="number" name="" value="" class="input form-element" required>
+                <input type="number" name="engine" id="engine"  class="input form-element" required>
 
                 <label for="">
                     <h3>Seating capacity</h3>
                 </label>
-                <input type="number" name="" value="" class="input form-element" required>
+                <input type="number" name="seats" id="seats" class="input form-element" required>
 
                 <h3>Transmission type</h3>
-                <select class="select form-element" name="">
-                    <option value="Manual">Manual</option>
+                <select class="select form-element" name="transmission" id="transmission">
+                    <option value="Mannual">Manual</option>
                     <option value="Automatic">Automatic</option>
                 </select>
 
                 <h3>Are you an individual or dealer?</h3>
-                <select class="select form-element" name="">
+                <select class="select form-element" name="seller_type" id="seller_type">
                     <option value="Individual">Individual</option>
                     <option value="Dealer">Dealer</option>
                 </select>
 
 
                 <h3>Estimated price : </h3>
-                <p></p>
+                <h3 id="estimated_price" style="text-align: center"></h3>
 
-                <button type="submit" name="button" class="estimate-button">Estimate Price</button>
+                <button type="submit" name="button" class="estimate-button" id="estimate" name="estimate" id="estimate">Estimate Price</button>
+                {% if user.is_authenticated %}
+                    <label for="">
+                        <h3>Desired price for sale :</h3>
+                    </label>
+                    <input type="text" name="selling_price" value="" class="input form-element" placeholder="0">
 
-                <label for="">
-                    <h3>Desired price for sale (optional)</h3>
-                </label>
-                <input type="number" name="" value="" class="input form-element" required>
-
-                <button type="button" name="button" class="sale-button">Add for sale</button>
-
+                    <button type="submit" name="button" id="button" class="sale-button" name="addtodb">Add for sale</button>
+                {% endif %}
             </div>
 
         </form>
 
     </main>
+
+    <script src="{% static 'estimate.js' %}" charset="utf-8"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

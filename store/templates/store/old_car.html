@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<title>OLD_CARS</title>
+<title>Old cars | Cash My Car</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
 <body>
-
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'store-home' %}">Cash My Car</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,167 +63,48 @@
 
     <section class="tours-section">
 
-        <div class="card card-2">
-            <img src="{% static 'images/rduster.jpg' %}" alt="">
-            <b>Hyundai i10</b>
-            <p>5.64 Lakhs*</p>
-            <p>48,512km- Diesel- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/hyundaii10.jpg' %}" alt="">
-            <b>Renault Duster</b>
-            <p>3,25,000 INR*</p>
-            <p>67,190km- petrol- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/rduster.jpg' %}" alt="">
-            <b>Hyundai i10</b>
-            <p>5.64 Lakhs*</p>
-            <p>48,512km- Diesel- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/hyundaii10.jpg' %}" alt="">
-            <b>Renault Duster</b>
-            <p>3,25,000 INR*</p>
-            <p>67,190km- petrol- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/rduster.jpg' %}" alt="">
-            <b>Hyundai i10</b>
-            <p>5.64 Lakhs*</p>
-            <p>48,512km- Diesel- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/hyundaii10.jpg' %}" alt="">
-            <b>Renault Duster</b>
-            <p>3,25,000 INR*</p>
-            <p>67,190km- petrol- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/rduster.jpg' %}" alt="">
-            <b>Hyundai i10</b>
-            <p>5.64 Lakhs*</p>
-            <p>48,512km- Diesel- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/hyundaii10.jpg' %}" alt="">
-            <b>Renault Duster</b>
-            <p>3,25,000 INR*</p>
-            <p>67,190km- petrol- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/rduster.jpg' %}" alt="">
-            <b>Hyundai i10</b>
-            <p>5.64 Lakhs*</p>
-            <p>48,512km- Diesel- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/hyundaii10.jpg' %}" alt="">
-            <b>Renault Duster</b>
-            <p>3,25,000 INR*</p>
-            <p>67,190km- petrol- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/rduster.jpg' %}" alt="">
-            <b>Hyundai i10</b>
-            <p>5.64 Lakhs*</p>
-            <p>48,512km- Diesel- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        <div class="card card-2">
-            <img src="{% static 'images/hyundaii10.jpg' %}" alt="">
-            <b>Renault Duster</b>
-            <p>3,25,000 INR*</p>
-            <p>67,190km- petrol- 1st Owner</p>
-            <button onclick="document.getElementById('ticketModal').style.display='block'">Buy</button>
-        </div>
-
-        
+        {% for car in cars %}
+            {% if car.car_type == 'Old' %}
+                <div class="card card-2">
+                    <img src="{{ car.image.url }}" alt="">
+                    <b>{{ car.car_name }}</b>
+                    <p>{{ car.ex_price }} Lakhs*</p>
+                    <p>{{ car.kms_driven }} km - {{ car.fuel_type }} - {{ car.no_owners }} Owner</p>
+                    <span style="font-size: 13px">{{ car.date_posted|date:"F d, Y" }}</span>
+                    <button action=""><a style=" color: white; " href="{% url 'car-detail' car.id %}" title="">View</a></button>
+                </div>
+            {% endif %}
+        {% endfor %}
 
     </section>
 
-  <!-- Ticket Modal -->
-  <div id="ticketModal" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <!-- Ticket Modal -->
+    <div id="ticketModal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top w3-card-4">
 
-      <header class="w3-container w3-teal w3-padding-32">
-      <h2 class="w3-wide"></i>Maruti Suzuki Alto<br>48,512km- Diesel- 1st Owner<br>5.64 Lakhs*<br>Name of Owner<br> Mobile number of Owner<br>e-mail of Owner<br></h2>
-      </header>
+            <header class="w3-container w3-padding-32">
+                <h2 class="w3-wide"></i>Maruti Suzuki Alto<br>48,512km <br> Diesel <br> 5.64 Lakhs*<br> 10000cc <br> 5 seater</h2>
+            </header>
 
-      <div class="w3-container">
-        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-      </div>
+            <div class="w3-container">
+                <button class="w3-button w3-black w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Proceed to buy</button>
+            </div>
+        </div>
     </div>
-  </div>
+        
+    <!-- Footer -->
+    <footer id="footer" class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-</footer>
+    <script src="{% static 'script.js' %}" charset="utf-8"></script>
 
-<script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}
-  x[myIndex-1].style.display = "block";
-  setTimeout(carousel, 4000);
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>

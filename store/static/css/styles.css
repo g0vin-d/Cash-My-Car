@@ -115,6 +115,7 @@ body{
 
 .card img{
     width: 100%;
+    height: 175px;
 }
 
 .card img:hover{
@@ -131,6 +132,13 @@ body{
     width: 95%;
 }
 
+.card button a{
+     color: white; 
+     display: inline-block; 
+     width:95%; 
+     text-decoration-style: unset;
+}
+
 .card button:hover{
     color: rgba(0,0,0,.8);
     background-color: #ccc;
@@ -145,6 +153,20 @@ footer i{
     margin: 0 .5rem;
 }
 
+/*#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+/*#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}*/
 --------------------------------------------------------------------------------------------------------------------
 
 .body-2{
@@ -314,3 +336,7 @@ form button:focus{
 }
 
 --------------------------------------------------------------------------------------------------------------------
+
+.viewbtn {
+    width: 100%;
+}
