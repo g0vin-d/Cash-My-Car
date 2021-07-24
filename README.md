@@ -22,4 +22,6 @@ Intructions:
 	python manage.py makemigrations
 	python manage.py sqlmigrate ----- ------
 	deactivate (to deactivate virtual env later)	
-
+## Screenshots
+![homepage](screenshots/homepage.png)
+![evalution](screenshots/evaluation.png)
