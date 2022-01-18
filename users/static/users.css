@@ -1,0 +1,11 @@
+.media__img {
+    width: 175px;
+    height: 175px;
+}
+
+.account-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}

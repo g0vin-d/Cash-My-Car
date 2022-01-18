@@ -44,6 +44,9 @@
             <ul class="navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link" href="{%url 'user-cars' user.username %}">My Cars</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{%url 'profile' %}"><i class="ml-3 fa fa-user"></i> Profile</a>
                     </li>
                     <li class="nav-item">
@@ -171,7 +174,8 @@
                 <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
             </div>
             <div class="w3-col m6">
-                <form action="/action_page.php" target="_blank">
+                <form action="/" method="POST">
+                {% csrf_token %}
                     <div class="w3-row-padding midd" style="margin:0 -16px 8px -16px">
                         <div class="w3-half">
                             <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">

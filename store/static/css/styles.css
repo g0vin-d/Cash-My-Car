@@ -136,12 +136,16 @@ body{
      color: white; 
      display: inline-block; 
      width:95%; 
-     text-decoration-style: unset;
+     text-decoration-style: none;
 }
 
 .card button:hover{
     color: rgba(0,0,0,.8);
     background-color: #ccc;
+    text-decoration: none;
+}
+.card button a:hover {
+    text-decoration: none;
 }
 
 header input{
@@ -339,4 +343,15 @@ form button:focus{
 
 .viewbtn {
     width: 100%;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    transform: translateY(-70px);
+}
+
+.pagination a{
+    font-size: 1.5rem !important;
+    margin-right: 10px;
 }

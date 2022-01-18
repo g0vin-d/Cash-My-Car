@@ -4,7 +4,7 @@ Intructions:
 1: First Create Virtual Environment
 
 	virtualenv envName 
-	source envName/bin/activate // to activate environment 
+	source envName/bin/activate // to activate 
 
 2: Install requirements
 
@@ -22,6 +22,9 @@ Intructions:
 	python manage.py makemigrations
 	python manage.py sqlmigrate ----- ------
 	deactivate (to deactivate virtual env later)	
+
+
 ## Screenshots
+
 ![homepage](screenshots/homepage.png)
 ![evalution](screenshots/evaluation.png)

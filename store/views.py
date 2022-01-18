@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from typing import List
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Car
+from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.urls import reverse
 import json
 import numpy as np
 import sklearn
@@ -43,22 +46,34 @@ def home(request):
 
 
 class NewCarListView(ListView):
-    model = Car
+    # model = Car
     template_name = 'store/new_car.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'cars'
+    queryset = Car.objects.filter(car_type='New')
     ordering = ['-date_posted']
+    paginate_by = 6
 
+class OldCarListView(ListView):
+    # model = Car
+    template_name = 'store/old_car.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'cars'
+    queryset = Car.objects.filter(car_type='Old')
+    ordering = ['-date_posted']
+    paginate_by = 6
+
+class UserCarListView(ListView):
+    model = Car
+    template_name = 'store/user_cars.html'
+    context_object_name = 'cars'
+    paginate_by = 6
+
+    def get_queryset(self):
+        author = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Car.objects.filter(user=author).order_by('-date_posted')
 
 class CarDetailView(DetailView):
     model = Car
     template_name = 'store/car_details.html'  # <app>/<model>_<viewtype>.html
-
-
-class OldCarListView(ListView):
-    model = Car
-    template_name = 'store/old_car.html'  # <app>/<model>_<viewtype>.html
-    context_object_name = 'cars'
-    ordering = ['-date_posted']
 
 
 class CarCreateView(LoginRequiredMixin, CreateView):
@@ -89,9 +104,10 @@ class CarUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
 
 
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class CarDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Car
     success_url = '/'
+    context_object_name = 'car'
 
     def test_func(self):
         car = self.get_object()
@@ -115,7 +131,7 @@ def sellacar(request):
         seller_type = request.POST['seller_type']
         selling_price = request.POST['selling_price']
         user = request.user
-        if purchase_year == 2020 and kms_driven == 0:
+        if purchase_year == 2021 and kms_driven == 0:
             car_type = 'New'
         else:
             car_type = 'Old'
@@ -133,6 +149,10 @@ def sellacar(request):
                        selling_price=selling_price, user=request.user)
 
         instance.save()
+        if car_type == 'New':
+            return redirect('store-newcar') 
+        else: 
+            return redirect('store-oldcar') 
 
     return render(request, 'store/sell_a_car.html')
 
