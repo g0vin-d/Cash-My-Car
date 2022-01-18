@@ -34,6 +34,7 @@ context = {
 
 def home(request):
     tourSection = {'cars': Car.objects.all()[:6]}
+    print(tourSection)
     return render(request, 'store/index.html', tourSection)
 
 
@@ -46,7 +47,8 @@ def home(request):
 
 
 class NewCarListView(ListView):
-    # model = Car
+    # model = CarTypeError: 'ImageFieldFile' object is not subscriptable
+
     template_name = 'store/new_car.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'cars'
     queryset = Car.objects.filter(car_type='New')
