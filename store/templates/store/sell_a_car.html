@@ -93,7 +93,11 @@
                 <ul class="navbar-nav navbar-right">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{%url 'user-cars' user.username %}">My Cars</a>
+                        <a
+                            class="nav-link"
+                            href="{%url 'user-cars' user.username %}"
+                            >My Cars</a
+                        >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{%url 'profile' %}"
@@ -133,148 +137,164 @@
             >
                 {% csrf_token %}
                 <div class="form-fields">
-                    <label for="">
-                        <h3>Car name</h3>
-                    </label>
-                    <input
-                        type="text"
-                        name="car_name"
-                        id="car_name"
-                        value=""
-                        class="input form-element"
-                        required
-                    />
+                    <div class="form__group">
+                        <label for="">
+                            <h3>Car name</h3>
+                        </label>
+                        <input
+                            type="text"
+                            name="car_name"
+                            id="car_name"
+                            value=""
+                            class="input form-element"
+                            required
+                        />
+                    </div>
+                    <div class="form__group">
+                        <label for="image">
+                            <h3>Upload Car Image</h3>
+                        </label>
+                        <input
+                            type="file"
+                            name="image"
+                            id="image"
+                            value=""
+                            id=""
+                            class=""
+                        />
+                    </div>
+                    <div class="form__group">
+                        <h3>Year of purchase</h3>
+                        <select
+                            class="select form-element"
+                            name="purchase_year"
+                            id="purchase_year"
+                        >
+                            <option value="2020">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label for="">
+                            <h3>Showroom price (in lakhs)</h3>
+                        </label>
+                        <input
+                            type="text"
+                            name="ex_price"
+                            id="ex_price"
+                            class="input form-element"
+                        />
+                    </div>
+                    <div class="form__group">
+                        <label for="">
+                            <h3>Kilometres driven</h3>
+                        </label>
+                        <input
+                            type="number"
+                            name="kms_driven"
+                            id="kms_driven"
+                            class="input form-element"
+                            required
+                        />
+                    </div>
+                    <div class="form__group">
+                        <label for="">
+                            <h3>No. of previous owners</h3>
+                        </label>
+                        <input
+                            type="number"
+                            name="no_owners"
+                            id="no_owners"
+                            class="input form-element"
+                            required
+                        />
+                    </div>
+                    <div class="form__group">
+                        <h3>Fuel type</h3>
+                        <select
+                            class="select form-element"
+                            name="fuel_type"
+                            id="fuel_type"
+                        >
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="CNG">CNG</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label for="">
+                            <h3>Engine capacity (in cc)</h3>
+                        </label>
+                        <input
+                            type="number"
+                            name="engine"
+                            id="engine"
+                            class="input form-element"
+                            required
+                        />
+                    </div>
+                    <div class="form__group">
+                        <label for="">
+                            <h3>Seating capacity</h3>
+                        </label>
+                        <input
+                            type="number"
+                            name="seats"
+                            id="seats"
+                            class="input form-element"
+                            required
+                        />
+                    </div>
+                    <div class="form__group">
+                        <h3>Transmission type</h3>
+                        <select
+                            class="select form-element"
+                            name="transmission"
+                            id="transmission"
+                        >
+                            <option value="Mannual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <h3>Are you an individual or dealer?</h3>
+                        <select
+                            class="select form-element"
+                            name="seller_type"
+                            id="seller_type"
+                        >
+                            <option value="Individual">Individual</option>
+                            <option value="Dealer">Dealer</option>
+                        </select>
+                    </div>
 
-                    <label for="image">
-                        <h3>Upload Car Image</h3>
-                    </label>
-                    <input
-                        type="file"
-                        name="image"
-                        id="image"
-                        value=""
-                        id=""
-                        class=""
-                    />
-
-                    <h3>Year of purchase</h3>
-                    <select
-                        class="select form-element"
-                        name="purchase_year"
-                        id="purchase_year"
-                    >
-                        <option value="2020">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
-                        <option value="2006">2006</option>
-                        <option value="2005">2005</option>
-                        <option value="2004">2004</option>
-                        <option value="2003">2003</option>
-                        <option value="2002">2002</option>
-                        <option value="2001">2001</option>
-                        <option value="2000">2000</option>
-                    </select>
-
-                    <label for="">
-                        <h3>Showroom price (in lakhs)</h3>
-                    </label>
-                    <input
-                        type="text"
-                        name="ex_price"
-                        id="ex_price"
-                        class="input form-element"
-                    />
-
-                    <label for="">
-                        <h3>Kilometres driven</h3>
-                    </label>
-                    <input
-                        type="number"
-                        name="kms_driven"
-                        id="kms_driven"
-                        class="input form-element"
-                        required
-                    />
-
-                    <label for="">
-                        <h3>No. of previous owners</h3>
-                    </label>
-                    <input
-                        type="number"
-                        name="no_owners"
-                        id="no_owners"
-                        class="input form-element"
-                        required
-                    />
-
-                    <h3>Fuel type</h3>
-                    <select
-                        class="select form-element"
-                        name="fuel_type"
-                        id="fuel_type"
-                    >
-                        <option value="Petrol">Petrol</option>
-                        <option value="Diesel">Diesel</option>
-                        <option value="CNG">CNG</option>
-                    </select>
-
-                    <label for="">
-                        <h3>Engine capacity (in cc)</h3>
-                    </label>
-                    <input
-                        type="number"
-                        name="engine"
-                        id="engine"
-                        class="input form-element"
-                        required
-                    />
-
-                    <label for="">
-                        <h3>Seating capacity</h3>
-                    </label>
-                    <input
-                        type="number"
-                        name="seats"
-                        id="seats"
-                        class="input form-element"
-                        required
-                    />
-
-                    <h3>Transmission type</h3>
-                    <select
-                        class="select form-element"
-                        name="transmission"
-                        id="transmission"
-                    >
-                        <option value="Mannual">Manual</option>
-                        <option value="Automatic">Automatic</option>
-                    </select>
-
-                    <h3>Are you an individual or dealer?</h3>
-                    <select
-                        class="select form-element"
-                        name="seller_type"
-                        id="seller_type"
-                    >
-                        <option value="Individual">Individual</option>
-                        <option value="Dealer">Dealer</option>
-                    </select>
-
-                    <h3>Estimated price :</h3>
-                    <h3 id="estimated_price" style="text-align: center"></h3>
-
+                    <div class="form__group">
+                        <h3>Estimated price :</h3>
+                        <h3
+                            id="estimated_price"
+                            style="text-align: center"
+                        ></h3>
+                    </div>
                     <button
                         type="submit"
                         name="button"

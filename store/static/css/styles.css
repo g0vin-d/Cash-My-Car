@@ -1,20 +1,38 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-html{
+html {
     font-size: 62.5%;
     scroll-behavior: smooth;
     --light-blue: #39a1ff;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+@media only screen and (max-width: 800px) {
+    html {
+        font-size: 50%;
+    }
 }
 
-body{
+body {
+    overflow-x: hidden;
     font-size: 1.6rem;
-    font-family: "Lato", sans-serif
+    font-family: "Lato", sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-.navbar{
+.head-nav {
+    padding-top: 5.8rem;
+}
+@media only screen and (max-width: 1000px) {
+    .head-nav {
+        padding-top: 10rem;
+    }
+}
+.navbar {
     border-radius: 0;
     margin-bottom: 0;
     position: fixed;
@@ -24,76 +42,145 @@ body{
     z-index: 10000;
 }
 
-.navbar-brand{
+.navbar-brand {
     font-size: 2.8rem;
     margin-right: 5rem;
 }
 
-.nav-link{
+.nav-link {
     font-size: 1.5rem;
     margin-right: 2.5rem;
 }
 
-.dropdown-item{
+.dropdown-item {
     font-size: 1.5rem;
 }
 
-.header{
+.header {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-.header div{
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
+/* @media only screen and (max-width: 1000px) {
+    .header {
+        margin-top: 10rem;
+    }
+} */
 
-.banner{
-    width: 100%;
-    margin-top: -10rem;
+.header div {
+    /* height: 100vh; */
+    width: 100vw;
+    background-size: cover;
+    background-position: top;
+    overflow: hidden;
     position: relative;
 }
 
-.banner-text{
+.banner {
+    width: 100%;
+    margin-top: -10rem;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 1000px) {
+    .banner {
+        margin-top: 0rem;
+    }
+}
+
+.banner-text {
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     left: 3%;
     font-size: 4rem;
     color: #fff;
 }
+@media only screen and (max-width: 1000px) {
+    .banner-text {
+        font-size: 2rem;
+    }
+}
 
-.about{
-    width: 80%;
+.about {
+    max-width: 80%;
     padding: 15rem 20rem;
     margin: 0 auto;
 }
 
-.about h1{
+@media only screen and (max-width: 1000px) {
+    .about {
+        max-width: 80%;
+        padding: 10rem 10rem;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .about {
+        max-width: 80%;
+        padding: 9rem 6rem;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .about {
+        max-width: 80%;
+        padding: 8rem 4rem;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .about {
+        max-width: 80%;
+        padding: 7rem 2rem;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .about {
+        max-width: 80%;
+        padding: 6rem 0.5rem;
+    }
+}
+
+.about h1 {
     text-align: center;
     text-transform: uppercase;
     font-size: 5rem;
     margin-bottom: 6rem;
 }
 
-.about h4{
+@media only screen and (max-width: 800px) {
+    .about h1 {
+        font-size: 3.5rem;
+    }
+}
+
+.about h4 {
     margin-top: 4rem;
     font-size: 2.6rem;
 }
 
-.about p{
+@media only screen and (max-width: 800px) {
+    .about h4 {
+        font-size: 2rem;
+    }
+}
+
+.about p {
     font-size: 1.8rem;
-    color: rgba(0,0,0,.6);
+    color: rgba(0, 0, 0, 0.6);
     margin-top: 2rem;
 }
 
-.details{
+@media only screen and (max-width: 800px) {
+    .about p {
+        font-size: 1.5rem;
+    }
+}
+
+.details {
     margin-top: 8rem;
 }
 
-.tours-section{
+.tours-section {
     background-color: #222;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -103,44 +190,70 @@ body{
     padding: 15rem;
 }
 
-.card{
+@media only screen and (max-width: 1200px) {
+    .tours-section {
+        padding: 12rem;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .tours-section {
+        padding: 10rem 5rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .tours-section {
+        padding: 10rem 2rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .tours-section {
+        padding: 10rem 4rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.card {
     width: 27rem;
     background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-.card img{
+.card img {
     width: 100%;
     height: 175px;
 }
 
-.card img:hover{
-    opacity: .7;
+.card img:hover {
+    opacity: 0.7;
 }
 
-.card b{
+.card b {
     margin-top: 2rem;
 }
 
-.card button{
+.card button {
     background-color: #000;
     color: #fff;
     width: 95%;
 }
 
-.card button a{
-     color: white; 
-     display: inline-block; 
-     width:95%; 
-     text-decoration-style: none;
+.card button a {
+    color: white;
+    display: inline-block;
+    width: 95%;
+    text-decoration-style: none;
 }
 
-.card button:hover{
-    color: rgba(0,0,0,.8);
+.card button:hover {
+    color: rgba(0, 0, 0, 0.8);
     background-color: #ccc;
     text-decoration: none;
 }
@@ -148,13 +261,13 @@ body{
     text-decoration: none;
 }
 
-header input{
-    color: rgba(0,0,0,.8);
+header input {
+    color: rgba(0, 0, 0, 0.8);
 }
 
-footer i{
+footer i {
     font-size: 3rem;
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
 }
 
 /*#page-container {
@@ -164,7 +277,7 @@ footer i{
 
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
-}
+/* } */
 
 /*#footer {
   position: absolute;
@@ -172,32 +285,31 @@ footer i{
   width: 100%;
 }*/
 --------------------------------------------------------------------------------------------------------------------
-
-.body-2{
+    .body-2 {
     background-color: #222;
 }
 
-.header-2{
+.header-2 {
     background-color: transparent;
     height: 20vh;
 }
 
-.nav-2{
+.nav-2 {
     top: 30%;
     right: 2%;
     margin-top: -12rem;
 }
 
-.heading-2{
+.heading-2 {
     margin-top: 12rem;
 }
 
-.heading-2 h1{
+.heading-2 h1 {
     font-size: 6rem;
     font-weight: 500;
 }
 
-.main-2{
+.main-2 {
     padding: 5rem;
     color: gray;
     display: flex;
@@ -206,58 +318,133 @@ footer i{
     align-items: center;
     background-color: #222;
 }
+@media only screen and (max-width: 1100px) {
+    .main-2 {
+        padding: 5rem 3rem;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .main-2 {
+        padding: 5rem 0rem;
+    }
+}
 
-.main-2 h1{
+.main-2 h1 {
     color: #fff;
     font-size: 5rem;
     text-transform: uppercase;
     margin-top: 10rem;
 }
 
-.survey-form{
+@media only screen and (max-width: 900px) {
+    .main-2 h1 {
+        font-size: 3rem;
+    }
+}
+
+.survey-form {
     width: 60%;
     background-color: #fff;
     border-radius: 1rem;
-    box-shadow: 0 1rem 4rem rgba(0,0,0, .6);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.6);
     text-align: left;
     padding: 5rem;
     text-align: right;
     margin: 5rem 0;
 }
 
-.form-fields{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 4rem;
-    align-items: center;
+@media only screen and (max-width: 1100px) {
+    .survey-form {
+        width: 70%;
+        padding: 5rem 3rem;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .survey-form {
+        width: 80%;
+        padding: 5rem 3rem;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .survey-form {
+        width: 90%;
+        padding: 5rem 3rem;
+    }
 }
 
-.survey-form h3{
+@media only screen and (max-width: 550px) {
+    .survey-form {
+        width: 95%;
+        padding: 5rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .survey-form {
+        width: 95%;
+        padding: 5rem 0.2rem;
+    }
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+/* @media only screen and (max-width: 550px) {
+    .form-fields {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+    }
+} */
+
+.form__group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 3rem;
+    align-items: center;
+    justify-content: stretch;
+}
+@media only screen and (max-width: 550px) {
+    .form__group {
+        grid-column-gap: 0rem;
+    }
+}
+
+.form__group input {
+    width: 90%;
+}
+
+.survey-form h3 {
     font-size: 2rem;
     font-weight: 200;
     color: #000;
     line-height: 1.3;
     display: inline-block;
-    padding: .6rem;
+    padding: 0.6rem;
 }
 
-.survey-form h3:last-of-type{
+.survey-form h3:last-of-type {
     margin-top: 1.2rem;
 }
 
-input[type=file]{
+input[type="file"] {
     margin-left: 2rem;
 }
 
-.form-element{
+.form-element {
+    width: 90%;
     display: block;
     font-size: 1.6rem;
     line-height: 1.3;
-    padding: .8rem;
-    color: rgba(0,0,0,.8);
+    padding: 0.8rem;
+    color: rgba(0, 0, 0, 0.8);
     border: 1px solid #aaa;
-    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-    border-radius: .4rem;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+    border-radius: 0.4rem;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
@@ -265,37 +452,37 @@ input[type=file]{
     margin: 1.5rem;
 }
 
-.form-element:focus{
+.form-element:focus {
     color: #000;
     outline: none;
 }
 
-.form-element:required{
+.form-element:required {
     box-shadow: none;
 }
 
-.select{
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-	  linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
-	background-repeat: no-repeat, repeat;
-	background-position: right .7em top 50%, 0 0;
-	background-size: .65em auto, 100%;
+.select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+        linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     margin: 0;
 }
 
-form button{
+form button {
     padding: 1rem 3rem;
     font-size: 1.6rem;
     border: none;
     border: 1px solid var(--light-blue);
-    transition: all .4s;
+    transition: all 0.4s;
     border-radius: 2px;
     width: 30%;
     cursor: pointer;
@@ -304,44 +491,43 @@ form button{
     margin: 4rem;
 }
 
-form button:focus{
+form button:focus {
     outline: none;
 }
 
-.estimate-button{
+.estimate-button {
     background-color: #fff;
     color: var(--light-blue);
 }
 
-.estimate-button:hover{
+.estimate-button:hover {
     background-color: var(--light-blue);
     color: #fff;
 }
 
-.estimate-button:active{
+.estimate-button:active {
     background-color: #fff;
     color: var(--light-blue);
 }
 
-.sale-button{
+.sale-button {
     width: 100%;
     background-color: var(--light-blue);
     color: #fff;
 }
 
-.sale-button:hover{
+.sale-button:hover {
     background-color: #fff;
     color: var(--light-blue);
 }
 
-.sale-button:active{
+.sale-button:active {
     background-color: var(--light-blue);
     color: #fff;
 }
 
 --------------------------------------------------------------------------------------------------------------------
-
-.viewbtn {
+    .viewbtn {
     width: 100%;
 }
 
@@ -351,7 +537,7 @@ form button:focus{
     transform: translateY(-70px);
 }
 
-.pagination a{
+.pagination a {
     font-size: 1.5rem !important;
     margin-right: 10px;
 }

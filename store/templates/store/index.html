@@ -13,58 +13,60 @@
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
 <body>
+    <div class='head-nav'>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'store-home' %}">Cash My Car</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{% url 'store-home' %}">Cash My Car</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'store-home' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Buy Car
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'store-newcar' %}">New</a>
-                        <a class="dropdown-item" href="{% url 'store-oldcar' %}">Old</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'store-sellcar' %}">Sell a Car</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'store-home' %}#contact">Contact Us</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav navbar-right">
-                {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{%url 'user-cars' user.username %}">My Cars</a>
+                        <a class="nav-link" href="{% url 'store-home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Buy Car
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'store-newcar' %}">New</a>
+                            <a class="dropdown-item" href="{% url 'store-oldcar' %}">Old</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{%url 'profile' %}"><i class="ml-3 fa fa-user"></i> Profile</a>
+                        <a class="nav-link" href="{% url 'store-sellcar' %}">Sell a Car</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{%url 'logout' %}"><i class="ml-3 fa fa-sign-out-alt"></i> Logout</a>
+                        <a class="nav-link" href="{% url 'store-home' %}#contact">Contact Us</a>
                     </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{%url 'login' %}"><i class="ml-3 fa fa-user"></i> Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{%url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
+                </ul>
+                <ul class="navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{%url 'user-cars' user.username %}">My Cars</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{%url 'profile' %}"><i class="ml-3 fa fa-user"></i> Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{%url 'logout' %}"><i class="ml-3 fa fa-sign-out-alt"></i> Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{%url 'login' %}"><i class="ml-3 fa fa-user"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{%url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
 
 
+    </div>
     <!-- Automatic Slideshow Images -->
     <div class="header">
 
